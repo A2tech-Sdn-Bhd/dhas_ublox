@@ -43,11 +43,29 @@ def generate_launch_description():
     config_directory = os.path.join(
         ament_index_python.packages.get_package_share_directory('ublox_gps'),
         'config')
-    params = os.path.join(config_directory, 'c94_m8p_rover.yaml')
+    params = os.path.join(config_directory, 'zed_f9p_rover.yaml')
     ublox_gps_node = launch_ros.actions.Node(package='ublox_gps',
-                                             executable='ublox_gps_node',
+                                             executable='ublox_gps_rover_node',
                                              output='both',
-                                             parameters=[params])
+                                             parameters=[params],
+                                            remappings=[
+                                                ('/aidalm', 'gps/rover/aidalm'),
+                                                ('/aideph', 'gps/rover/aideph'),
+                                                ('/diagnostics', 'gps/rover/diagnostics'),
+                                                ('/monhw', 'gps/rover/monhw'),
+                                                ('/navclock', 'gps/rover/navclock'),
+                                                ('/navcov', 'gps/rover/navcov'),
+                                                ('/navheading', 'gps/rover/navheading'),
+                                                ('/navrelposned', 'gps/rover/navrelposned'),
+                                                ('/navstate', 'gps/rover/navstate'),
+                                                ('/navstatus', 'gps/rover/navstatus'),
+                                                ('/navsvin', 'gps/rover/navsvin'),
+                                                ('/nmea', 'gps/rover/nmea'),
+                                                ('/rxmrtcm', 'gps/rover/rxmrtcm'),
+                                                ('/ublox_gps_node/fix', 'gps/rover/fix'),
+                                                ('/ublox_gps_node/fix_velocity', 'gps/rover/fix_velocity'),
+                                                ('/ublox_gps_node/navpvt', 'gps/rover/navpvt'),]
+                                             )
 
     return launch.LaunchDescription([ublox_gps_node,
 
