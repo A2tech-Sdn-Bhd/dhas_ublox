@@ -45,7 +45,7 @@ def generate_launch_description():
         'config')
     params = os.path.join(config_directory, 'zed_f9p_rover.yaml')
     ublox_gps_node = launch_ros.actions.Node(package='ublox_gps',
-                                             executable='ublox_gps_rover_node',
+                                             executable='ublox_gps_node',
                                              output='both',
                                              parameters=[params],
                                             remappings=[
