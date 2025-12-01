@@ -13,7 +13,7 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(movingbase_launch)
     )
 
-    # Rover launch file
+    # # Rover launch file
     rover_launch = os.path.join(ublox_gps_dir, 'launch', 'ublox_gps_rover_node-launch.py')
     ublox_rover = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(rover_launch)

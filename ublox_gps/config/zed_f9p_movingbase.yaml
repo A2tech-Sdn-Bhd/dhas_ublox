@@ -2,7 +2,8 @@
 ublox_gps_node:
   ros__parameters:
     debug: 0                    # Range 0-4 (0 means no debug statements will print)
-    device: /dev/ublox_movingbase
+    # device: /dev/ublox_movingbase
+    device: /dev/ttyACM0
     frame_id: gps_movingbase
     uart1:
       baudrate: 9600
