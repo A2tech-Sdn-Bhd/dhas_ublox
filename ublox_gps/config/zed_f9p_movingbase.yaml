@@ -2,8 +2,7 @@
 ublox_gps_node:
   ros__parameters:
     debug: 0                    # Range 0-4 (0 means no debug statements will print)
-    # device: /dev/ublox_movingbase
-    device: /dev/ttyACM0
+    device:  /dev/ublox_movingbase
     frame_id: gps_movingbase
     uart1:
       baudrate: 9600
@@ -31,3 +30,5 @@ ublox_gps_node:
         pvt: true           # keep PVT (for fixType and status)
         sat: true           # optional, satellite info
         heading: true
+      rxm:
+        rtcm: true
